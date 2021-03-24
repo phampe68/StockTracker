@@ -1,22 +1,22 @@
-import React, { Component, useState, useEffect} from 'react';
+import React, { Component, useState, useEffect } from "react";
+import { TouchableOpacity } from "react-native-gesture-handler";
+import { StyleSheet, Text, View } from "react-native";
 
-import { TouchableOpacity } from "react-native-gesture-handler"
-import { StyleSheet, Text, View } from 'react-native';
-
-const Header = ({name, openDrawer}) => {
+/**
+ * Header contains button to open side menu and a text showing what page we're on
+ */
+const Header = ({ name, openDrawer }) => {
     return (
-    <View style={styles.header} >
-        <TouchableOpacity onPress={()=>openDrawer()}>
-            <Text>IUTS UIT</Text>
-        </TouchableOpacity>
+        <View style={styles.header}>
+            <TouchableOpacity onPress={() => openDrawer()}>
+                <Text>MENU</Text>
+            </TouchableOpacity>
 
-        <Text>{name}</Text>
-        <Text style={{width: 50}}>
-
-        </Text>
-    </View>
-    )
-}
+            <Text>{name}</Text>
+            <Text style={{ width: 50 }}></Text>
+        </View>
+    );
+};
 
 const styles = StyleSheet.create({
     header: {
@@ -26,7 +26,7 @@ const styles = StyleSheet.create({
         justifyContent: "space-between",
         alignItems: "center",
         paddingHorizontal: 20,
-    }
-})
+    },
+});
 
 export default Header;
