@@ -7,11 +7,13 @@ import { createAppContainer } from "react-navigation";
 import Home from "./src/screens/HomeScreen";
 import Profile from "./src/screens/ProfileScreen";
 import Sidebar from "./src/components/Sidebar";
+import Search from "./src/screens/SearchScreen";
 
 const Drawer = createDrawerNavigator(
     {
         Home: { screen: Home },
         Profile: { screen: Profile },
+        Search: { screen: Search },
     },
     {
         initialRouteName: "Home",

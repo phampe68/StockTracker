@@ -30,6 +30,9 @@ const SideBar = ({ navigation }) => {
             name: "Profile",
             icon: "ios-contact",
         },
+        {
+            name: "Search",
+        },
     ]);
 
     //use flat list to display links to other pages
