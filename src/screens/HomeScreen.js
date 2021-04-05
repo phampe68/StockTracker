@@ -1,14 +1,18 @@
-import React from 'react'
-import { StyleSheet, Text, View } from 'react-native';
-import Header from '../components/Header';
+import React from "react";
+import { Button, View } from "react-native";
 
-const Home = ({navigation}) => {
+const HomeScreen = ({ navigation }) => {
     return (
-        <View>
-               <Header name="Home" openDrawer={navigation.openDrawer}/>
-
+        <View
+            style={{ flex: 1, alignItems: "center", justifyContent: "center" }}
+        >
+            <Button title="Drawer" onPress={() => navigation.toggleDrawer()} />
+            <Button
+                onPress={() => navigation.navigate("Search")}
+                title="Go to Search"
+            />
         </View>
-    )
-}
+    );
+};
 
-export default Home;
+export default HomeScreen;
