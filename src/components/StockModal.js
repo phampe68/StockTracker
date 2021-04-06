@@ -11,37 +11,36 @@ import {
 import { LineChart } from "react-native-chart-kit";
 import { firebase } from "../../src/firebase/config";
 
+//styling for react native chart kit line chart
 const chartConfig = {
-    backgroundColor: "#000000",
-    backgroundGradientFrom: "#1E2923",
-    backgroundGradientTo: "#08130D",
-    color: (opacity = 1) => `rgba(26, 255, 146, ${opacity})`,
+    backgroundColor: "#023047",
+    backgroundGradientFrom: "#023047",
+    backgroundGradientTo: "#023047",
+    decimalPlaces: 2, // optional, defaults to 2dp
+    color: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
+    labelColor: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
     style: {
         borderRadius: 16,
+    },
+    propsForDots: {
+        r: "6",
+        strokeWidth: "2",
+        stroke: "#ffa726",
     },
 };
 
 //modal screen displaying stock info
 const StockModal = ({ name, modalVisible, onClose, chartData }) => {
-    const chartConfig = {
-        backgroundColor: "#black",
-        backgroundGradientFrom: "#fb8c00",
-        backgroundGradientTo: "#ffa726",
-        decimalPlaces: 2, // optional, defaults to 2dp
-        color: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
-        labelColor: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
-        style: {
-            borderRadius: 16,
-        },
-        propsForDots: {
-            r: "6",
-            strokeWidth: "2",
-            stroke: "#ffa726",
-        },
-    };
+    const currUserID = firebase.auth().currentUser.uid;
+    const watchListRef = firebase.firestore().collection("watchlist");
 
     const addToWatchListHandler = () => {
         Alert.alert("Stock added to watchlist");
+        const dataToAdd = {
+            text: name,
+            authorID: currUserID,
+        };
+        watchListRef.add(dataToAdd);
     };
 
     return (

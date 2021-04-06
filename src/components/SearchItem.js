@@ -50,6 +50,7 @@ const styles = StyleSheet.create({
         color: "black",
         margin: 20,
         fontSize: 18,
+        fontFamily: "Roboto",
     },
 });
 
