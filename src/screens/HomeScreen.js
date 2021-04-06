@@ -1,16 +1,11 @@
 import React from "react";
 import { Button, View } from "react-native";
+import MenuButton from "../components/MenuButton";
 
 const HomeScreen = ({ navigation }) => {
     return (
-        <View
-            style={{ flex: 1, alignItems: "center", justifyContent: "center" }}
-        >
-            <Button title="Drawer" onPress={() => navigation.toggleDrawer()} />
-            <Button
-                onPress={() => navigation.navigate("Search")}
-                title="Go to Search"
-            />
+        <View style={{ flex: 1 }}>
+            <MenuButton navigation={navigation} />
         </View>
     );
 };

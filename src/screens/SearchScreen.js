@@ -15,6 +15,7 @@ import {
 } from "../api/AlphaVantageSearch";
 import SearchItem from "../components/SearchItem";
 import StockModal from "../components/StockModal";
+import Icon from "react-native-vector-icons/Feather";
 
 const SearchScreen = ({ navigation }) => {
     const [searchText, setSearch] = useState(SearchScreen.state);
@@ -53,29 +54,34 @@ const SearchScreen = ({ navigation }) => {
         setSelectedItem(symbol);
         setModalVisible(true);
 
-        getTimeSeriesMonthly(symbol).then((results) => {
-            let monthlyData = results["Monthly Time Series"];
-            //get first 12 labels:
-            let labels = Object.keys(monthlyData);
-            labels = labels.slice(0, 6);
-            labels = labels.reverse();
-            console.log(labels);
+        getTimeSeriesMonthly(symbol)
+            .then((results) => {
+                let monthlyData = results["Monthly Time Series"];
+                //get first 12 labels:
+                let labels = Object.keys(monthlyData);
+                labels = labels.slice(0, 6);
+                labels = labels.reverse();
 
-            //get first 12 values:
-            let valueObjs = Object.values(monthlyData);
-            valueObjs = valueObjs.slice(0, 6);
-            valueObjs = valueObjs.reverse();
-            let values = valueObjs.map((val) => val["1. open"]);
+                //get first 12 values:
+                let valueObjs = Object.values(monthlyData);
+                valueObjs = valueObjs.slice(0, 6);
+                valueObjs = valueObjs.reverse();
+                let values = valueObjs.map((val) => val["1. open"]);
 
-            setChartData({
-                labels: labels,
-                datasets: [
-                    {
-                        data: values,
-                    },
-                ],
+                setChartData({
+                    labels: labels,
+                    datasets: [
+                        {
+                            data: values,
+                        },
+                    ],
+                });
+            })
+            .catch((err) => {
+                alert(
+                    "Couldn't get stock info. API limit likely reached. Please try again in a few minutes."
+                );
             });
-        });
     };
 
     const closeModal = () => {
@@ -99,15 +105,27 @@ const SearchScreen = ({ navigation }) => {
 
     return (
         <View style={styles.container}>
-            <Button title="Drawer" onPress={() => navigation.toggleDrawer()} />
-            <SearchBar
-                onChangeText={updateSearch}
-                value={searchText}
-                placeholder="Type-Here"
-                round
-                searchIcon={{ size: 24 }}
-                color="#0000FF"
-            />
+            <View style={styles.outerSearchContainer}>
+                <View style={styles.menuIconContainer}>
+                    <Icon
+                        style={styles.menuIcon}
+                        name="menu"
+                        size={35}
+                        color="white"
+                        onPress={() => navigation.toggleDrawer()}
+                    />
+                </View>
+
+                <SearchBar
+                    onChangeText={updateSearch}
+                    value={searchText}
+                    placeholder="Type-Here"
+                    inputStyle={{ backgroundColor: "#ffb703" }}
+                    inputContainerStyle={{ backgroundColor: "transparent" }}
+                    containerStyle={styles.searchBarContainer}
+                    searchIcon={{ size: 24 }}
+                />
+            </View>
 
             <FlatList
                 data={searchData}
@@ -127,9 +145,37 @@ const SearchScreen = ({ navigation }) => {
 };
 
 const styles = StyleSheet.create({
+    menuIconContainer: {
+        marginRight: "auto",
+        marginTop: "auto",
+    },
+    menuIcon: {
+        marginBottom: 25,
+        marginHorizontal: 20,
+    },
     container: {
         flex: 1,
-        backgroundColor: "black",
+    },
+    outerSearchContainer: {
+        marginTop: -20,
+        marginBottom: 20,
+        backgroundColor: "#023047",
+        borderRadius: 20,
+        paddingTop: 80,
+        paddingBottom: 10,
+        flexDirection: "row",
+    },
+    searchBarContainer: {
+        width: "60%",
+        height: 60,
+        backgroundColor: "#ffb703",
+        borderRadius: 20,
+        borderWidth: 3,
+        borderColor: "transparent",
+        borderBottomColor: "transparent",
+        borderTopColor: "transparent",
+        marginRight: 15,
+        marginBottom: 15,
     },
 });
 
