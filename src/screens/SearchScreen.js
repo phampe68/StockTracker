@@ -30,6 +30,7 @@ const SearchScreen = ({ navigation }) => {
             },
         ],
     });
+
     /**
      * sets the search text state to save what's being entered
      * calls alphavantage search and updates search data for flat list

@@ -37,8 +37,8 @@ const StockModal = ({ name, modalVisible, onClose, chartData }) => {
     const addToWatchListHandler = () => {
         Alert.alert("Stock added to watchlist");
         const dataToAdd = {
-            text: name,
-            authorID: currUserID,
+            symbol: name,
+            userID: currUserID,
         };
         watchListRef.add(dataToAdd);
     };
