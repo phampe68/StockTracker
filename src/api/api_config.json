@@ -1,5 +1,7 @@
 {
     "key": "UBXLI266Q7EB8GN9",
-    "monthlyFunction" :  "TIME_SERIES_MONTHLY"
+    "monthlyFunction" :  "TIME_SERIES_MONTHLY",
+    "dailyFunction": "TIME_SERIES_DAILY",
+    "weeklyFunction": "TIME_SERIES_WEEKLY"
     
 }

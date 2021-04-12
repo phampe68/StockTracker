@@ -19,14 +19,13 @@ export const getStockSearchResults = (searchText) => {
 };
 
 /**
- * get monthly prices for a specified equity
- * @param symbol for equity
- * @returns json containing monthly prices at open, high, low, and close as well as volume
+ * Gets the values of a stock by a specified interval
+ * @param symbol ticker symbol of stock
+ * @param interval time interval between values (daily, weekly, monthly)
+ * @returns
  */
-export const getTimeSeriesMonthly = (symbol) => {
-    const monthlyFunction = api_config.monthlyFunction;
-
-    let apiURL = `https://www.alphavantage.co/query?function=${monthlyFunction}&symbol=${symbol}&apikey=${apikey}`;
+export const getTimeSeries = (symbol, interval) => {
+    let apiURL = `https://www.alphavantage.co/query?function=${interval}&symbol=${symbol}&apikey=${apikey}`;
     return fetch(apiURL)
         .then((response) => response.json())
         .then((json) => {

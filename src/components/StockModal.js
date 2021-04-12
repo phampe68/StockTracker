@@ -6,10 +6,12 @@ import {
     Text,
     TouchableOpacity,
     Alert,
+    Dimensions,
 } from "react-native";
 
 import { LineChart } from "react-native-chart-kit";
 import { firebase } from "../../src/firebase/config";
+import api_config from "../api/api_config.json";
 
 //styling for react native chart kit line chart
 const chartConfig = {
@@ -29,20 +31,47 @@ const chartConfig = {
     },
 };
 
-//modal screen displaying stock info
-const StockModal = ({ name, modalVisible, onClose, chartData }) => {
+/**
+ * COMPONENT: StockModal
+ * modal that displays stock name and a line chart with its data
+ * @param item: contains stock name and symbol
+ * @param modalVisible: from parent component, controls visibility of this modal
+ * @param onClose: function from parent to set modalVisible to false (closing it)
+ * @param chartData: contains time series data of stock to be displayed on line chart
+ * @param setTimeSeries: function from parent to set time series to other values (allowing user to change time series interval from the modal)
+ */
+const StockModal = ({
+    item,
+    modalVisible,
+    onClose,
+    chartData,
+    setTimeSeries,
+}) => {
+    //for adding to watchlist
     const currUserID = firebase.auth().currentUser.uid;
     const watchListRef = firebase.firestore().collection("watchlist");
 
+    //extract symbol and name from item param
+    let symbol = item["1. symbol"];
+    let name = item["2. name"];
+
+    //adds the stock to database with the userID
     const addToWatchListHandler = () => {
         Alert.alert("Stock added to watchlist");
         const dataToAdd = {
-            symbol: name,
+            "1. symbol": symbol,
+            "2. name": name,
             userID: currUserID,
         };
         watchListRef.add(dataToAdd);
     };
 
+    /**
+     * Use react native chart kit to display data,
+     * have button to close
+     * have button to add to watchlist
+     * have buttons to change to daily, weekly, and monthly, time intervals
+     */
     return (
         <View>
             <Modal
@@ -55,10 +84,13 @@ const StockModal = ({ name, modalVisible, onClose, chartData }) => {
             >
                 <View style={styles.outerContainer}>
                     <View style={styles.modal}>
-                        <TouchableOpacity onPress={onClose}>
+                        <TouchableOpacity
+                            onPress={onClose}
+                            style={styles.modalButton}
+                        >
                             <Text> CLOSE </Text>
                         </TouchableOpacity>
-                        <Text>{name}</Text>
+                        <Text style={{ color: "white" }}>{name}</Text>
                         <LineChart
                             data={chartData}
                             width={300}
@@ -70,7 +102,37 @@ const StockModal = ({ name, modalVisible, onClose, chartData }) => {
                             }}
                         />
 
-                        <TouchableOpacity onPress={addToWatchListHandler}>
+                        <TouchableOpacity
+                            style={styles.modalButton}
+                            onPress={() =>
+                                setTimeSeries(api_config.dailyFunction)
+                            }
+                        >
+                            <Text>Daily</Text>
+                        </TouchableOpacity>
+
+                        <TouchableOpacity
+                            style={styles.modalButton}
+                            onPress={() =>
+                                setTimeSeries(api_config.weeklyFunction)
+                            }
+                        >
+                            <Text>Weekly</Text>
+                        </TouchableOpacity>
+
+                        <TouchableOpacity
+                            style={styles.modalButton}
+                            onPress={() =>
+                                setTimeSeries(api_config.monthlyFunction)
+                            }
+                        >
+                            <Text>Monthly</Text>
+                        </TouchableOpacity>
+
+                        <TouchableOpacity
+                            onPress={addToWatchListHandler}
+                            style={styles.modalButton}
+                        >
                             <Text>Add to watchlist</Text>
                         </TouchableOpacity>
                     </View>
@@ -89,11 +151,20 @@ const styles = StyleSheet.create({
     },
     modal: {
         borderRadius: 10,
-        backgroundColor: "white",
+        backgroundColor: "#023047",
         width: "80%",
-        height: "60%",
+        height: "80%",
         justifyContent: "center",
         alignItems: "center",
+    },
+    modalButton: {
+        borderRadius: 10,
+        width: "50%",
+        height: "8%",
+        margin: 10,
+        alignItems: "center",
+        justifyContent: "center",
+        backgroundColor: "#ffb703",
     },
 });
 

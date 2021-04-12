@@ -10,14 +10,30 @@ import {
     Image,
 } from "react-native";
 
+/**
+ * SCREEN: SignUpScreen
+ * allows user to register for an account with their email and password using firebase
+ * @param navigation: used to navigate between screens and open side drawer
+ */
 const SignUpScreen = ({ navigation }) => {
+    /**
+     * STATE:
+     * password: password for new account
+     * confirmPassword: used for making sure user enters the same password twice (incase they make a typo)
+     * email: email associated with new account
+     */
     const [password, setPassword] = useState("");
     const [confirmPassword, setConfirmPassword] = useState("");
     const [email, setEmail] = useState("");
 
+    /**
+     * Use firebase createUserWithEmailAndPassword to generate a new account
+     * make sure passwords match first
+     */
     const signUpHandler = () => {
         if (password !== confirmPassword) {
             alert("Entered passwords do not match. Try again.");
+            return;
         }
         firebase
             .auth()

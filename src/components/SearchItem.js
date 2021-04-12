@@ -7,23 +7,35 @@ import {
     Dimensions,
 } from "react-native";
 
-const SCREEN_HEIGHT = Dimensions.get("window").height;
-const ITEM_HEIGHT = SCREEN_HEIGHT * 0.1;
-
-const SearchItem = ({ symbol, name, openModal }) => (
-    <View style={styles.itemContainer}>
-        <TouchableOpacity onPress={() => openModal(symbol)}>
-            <Text style={styles.listItemText}>
-                {symbol} {name}
-            </Text>
+/**
+ * COMPONENT: SearchItem
+ * a flat list item containing stock name and symbol, is clickable to reveal a StockModal containing more info on the stock
+ * @param item: contains stock symbol and name to be displayed
+ * @param openModal: function from parent to open the stock modal to view more info
+ */
+const SearchItem = ({ item, openModal }) => {
+    return (
+        <TouchableOpacity
+            onPress={() => openModal(item)}
+            style={styles.itemContainer}
+        >
+            <View style={styles.container}>
+                <Text style={styles.listItemText}>{item["1. symbol"]}</Text>
+                <Text style={styles.listItemText}>{item["2. name"]}</Text>
+            </View>
+            <View style={styles.leftHighlight} />
         </TouchableOpacity>
-        <View style={styles.leftHighlight} />
-    </View>
-);
+    );
+};
 
 //see shadow generator: https://ethercreative.github.io/react-native-shadow-generator/
-
+const SCREEN_HEIGHT = Dimensions.get("window").height;
+const ITEM_HEIGHT = SCREEN_HEIGHT * 0.1;
 const styles = StyleSheet.create({
+    container: {
+        height: SCREEN_HEIGHT * 0.1,
+        backgroundColor: "white",
+    },
     itemContainer: {
         margin: 10,
         backgroundColor: "white",
@@ -48,7 +60,8 @@ const styles = StyleSheet.create({
     },
     listItemText: {
         color: "black",
-        margin: 20,
+        marginHorizontal: 20,
+        marginVertical: 5,
         fontSize: 18,
         fontFamily: "Roboto",
     },

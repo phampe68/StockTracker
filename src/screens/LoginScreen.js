@@ -10,6 +10,12 @@ import {
     Image,
 } from "react-native";
 
+/**
+ * SCREEN: LoginScreen
+ * @param navigation: used to navigate between screens and open side drawer
+ * allows user to login using email and password if they have an account
+ * verification through firebase
+ */
 const LoginScreen = ({ navigation }) => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");

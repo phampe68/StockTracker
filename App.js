@@ -9,6 +9,7 @@ import HomeScreen from "./src/screens/HomeScreen";
 import SearchScreen from "./src/screens/SearchScreen";
 import LoginScreen from "./src/screens/LoginScreen";
 import SignUpScreen from "./src/screens/SignUpScreen";
+import TestScreen from "./src/screens/TestScreen";
 
 const Drawer = createDrawerNavigator();
 
@@ -55,6 +56,7 @@ export default function App() {
     return (
         <NavigationContainer>
             <Drawer.Navigator initialRouteName={initialRoute}>
+                <Drawer.Screen name="Test" component={TestScreen} />
                 <Drawer.Screen name="Home" component={HomeScreen} />
                 <Drawer.Screen name="Search" component={SearchScreen} />
                 <Drawer.Screen name="Login" component={LoginScreen} />
