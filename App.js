@@ -64,25 +64,6 @@ export default function App() {
                 setLoading(false);
             }
         });
-        /*
-        firebase.auth().onAuthStateChanged((user) => {
-            if (user) {
-                usersRef
-                    .doc(user.uid)
-                    .get()
-                    .then((document) => {
-                        setLoading(false);
-                        setLoggedIn(true);
-                    })
-                    .catch((err) => {
-                        console.log(err);
-                        setLoading(false);
-                    });
-            } else {
-                setLoading(false);
-            }
-        });
-        */
     });
 
     //while loading show blank screen

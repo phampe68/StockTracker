@@ -1,5 +1,3 @@
-<!-- PROJECT LOGO -->
-<br />
 <p align="center">
   <a href="https://github.com/phampe68/StockTracker">
     <img src="./assets/StockViewerLogo.jpg" alt="Logo" width="80" height="80" >
@@ -39,9 +37,6 @@
       </ul>
     </li>
     <li><a href="#usage">Usage</a></li>
-    <li><a href="#roadmap">Roadmap</a></li>
-    <li><a href="#contributing">Contributing</a></li>
-    <li><a href="#license">License</a></li>
     <li><a href="#contact">Contact</a></li>
     <li><a href="#acknowledgements">Acknowledgements</a></li>
   </ol>
@@ -68,15 +63,16 @@ This project will demonstrate the ability to interact with an API, have a user m
 4. On the search screen, search results should be updated automatically as the user types. This can be done using the Alphavantage Search endpoint. Search results should appear on a flatlist.
 5. Each search item should display the stock symbol and name.
 6. When the user clicks on a search item, a modal should appear with a line chart that displays the monthly values of that stock over the past 10 months.
-7. From the stock modal, the user should be able to add the stock to their watchlist if it's not already there. Adding to the watchlist should add an entry into a "watchlist' collection of the database with the fields 'userID' for the use that added the stock, and 'symbol' for the stock that was added.
-8. On the home screen, the user should be able to view all the stocks on their watchlist. This can be implemented similarly to the search page. To get all of this user's stocks, we can filter the 'watchlist' collection for items with that match the user's userID.
-9. The user should be able to remove stocks from their watchlist on the home screen. This can be done by swiping the list item which reveals a remove button.
-10. The user should be able to change the line chart such that they can view stock values by day, month, or year.
+7. The user should be able to change the line chart such that they can view stock values by day, month, or year.
+8. From the stock modal, the user should be able to add the stock to their watchlist if it's not already there. Adding to the watchlist should add an entry into a "watchlist' collection of the database with the fields 'userID' for the use that added the stock, and 'symbol' for the stock that was added.
+9. On the home screen, the user should be able to view all the stocks on their watchlist. This can be implemented similarly to the search page. To get all of this user's stocks, we can filter the 'watchlist' collection for items with that match the user's userID.
+10. The user should be able to remove stocks from their watchlist on the home screen. This can be done by swiping the list item which reveals a remove button.
 
 ### Built With
 
 -   [React Native](https://reactnative.dev/)
 -   [Firebase](https://firebase.google.com/)
+-   See `package.json` for full list of dependencies.
 
 <!-- GETTING STARTED -->
 
@@ -89,9 +85,18 @@ To get a local copy up and running follow these simple example steps.
 If you don't have npm and node installed use this [link](https://nodejs.org/en/)
 
 -   npm
+
     ```sh
     npm install npm@latest -g
     ```
+
+-   expo
+
+    ```sh
+    npm install --global expo-cli
+    ```
+
+-   if you want to use a physical device, install [Expo Go App](https://play.google.com/store/apps/details?id=host.exp.exponent)
 
 ### Installation
 
@@ -136,7 +141,3 @@ Peter Pham - 101141273 - PeterPham@cmail.carleton.ca
 -   [App color scheme picker](https://coolors.co/palettes/trending)
 -   [Alphavantage Docs](https://www.alphavantage.co/documentation/)
 -   [React Native Line Chart Kit](https://github.com/indiespirit/react-native-chart-kit/blob/master/src/line-chart/LineChart.tsx)
-
-```
-
-```

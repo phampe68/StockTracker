@@ -32,7 +32,6 @@ const WatchListItem = ({ item, openModal }) => {
             .onSnapshot(
                 (querySnapshot) => {
                     const item = querySnapshot.docs[0];
-                    console.log("ITEM", item);
                     if (item !== undefined) item.ref.delete();
                 },
                 (err) => {

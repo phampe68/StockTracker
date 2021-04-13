@@ -57,13 +57,24 @@ const StockModal = ({
 
     //adds the stock to database with the userID
     const addToWatchListHandler = () => {
-        Alert.alert("Stock added to watchlist");
-        const dataToAdd = {
-            symbol: symbol,
-            name: name,
-            userID: currUserID,
-        };
-        watchListRef.add(dataToAdd);
+        //check if this is item is already on the watchlsit
+        watchListRef
+            .where("userID", "==", currUserID)
+            .where("symbol", "==", symbol)
+            .get()
+            .then((results) => {
+                if (results.empty) {
+                    Alert.alert("Stock added to watchlist");
+                    const dataToAdd = {
+                        symbol: symbol,
+                        name: name,
+                        userID: currUserID,
+                    };
+                    watchListRef.add(dataToAdd);
+                } else {
+                    alert("Stock is already added");
+                }
+            });
     };
 
     /**
