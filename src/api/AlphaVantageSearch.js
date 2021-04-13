@@ -22,7 +22,7 @@ export const getStockSearchResults = (searchText) => {
  * Gets the values of a stock by a specified interval
  * @param symbol ticker symbol of stock
  * @param interval time interval between values (daily, weekly, monthly)
- * @returns
+ * @returns time series data
  */
 export const getTimeSeries = (symbol, interval) => {
     let apiURL = `https://www.alphavantage.co/query?function=${interval}&symbol=${symbol}&apikey=${apikey}`;

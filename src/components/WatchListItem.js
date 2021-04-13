@@ -1,12 +1,5 @@
 import React from "react";
-import {
-    StyleSheet,
-    TouchableOpacity,
-    View,
-    Text,
-    Dimensions,
-    Animated,
-} from "react-native";
+import { StyleSheet, View, Dimensions, Animated } from "react-native";
 import Swipeable from "react-native-gesture-handler/Swipeable";
 import Icon from "react-native-vector-icons/AntDesign";
 import SearchItem from "./SearchItem";

@@ -52,9 +52,9 @@
 ## About The Project (Background)
 
 <img src="./assets/StockViewerLogo.jpg" alt="Logo" width="80" height="80"> <br>
-The goal of this project is to create an app where a user can search stocks and view their time series in different intervals (day, week, month). This app will have a user system which will allows users to add/remove stocks to a watchlist.
+The goal of this project is to create an app where a user can search stocks and view their time series in different intervals (day, week, month). This app will have a user system which will allows users to add/remove stocks to a watchlist. The watchlists and users will be stored in a nosql database.
 
-This project will demonstrate the ability to interact with an API, have a user management system, and perform basic operations on a noSQL database. Additionally, feel free to look for and use different react native libraries to help with app functionality or design. Make sure to list all libraries used in your submission.
+This project will demonstrate the ability to interact with an API, have a user management system, and perform basic operations on a noSQL database. Additionally, it makes use of several react native libraries that enhance the functionality and design of the program.
 
 -   The api will be the alphavantage api.
 -   The database will be using firebase
@@ -67,7 +67,7 @@ This project will demonstrate the ability to interact with an API, have a user m
 3. The user should be able to navigate between a home screen where their stock watchlist is displayed, and a search screen where they can search and add stocks to the watchlist. Navigation should be done using side menu.
 4. On the search screen, search results should be updated automatically as the user types. This can be done using the Alphavantage Search endpoint. Search results should appear on a flatlist.
 5. Each search item should display the stock symbol and name.
-6. When the user clicks on a search item, a modal should appear with a line chart that displays the monthly values of that stock over the past 6 months.
+6. When the user clicks on a search item, a modal should appear with a line chart that displays the monthly values of that stock over the past 10 months.
 7. From the stock modal, the user should be able to add the stock to their watchlist if it's not already there. Adding to the watchlist should add an entry into a "watchlist' collection of the database with the fields 'userID' for the use that added the stock, and 'symbol' for the stock that was added.
 8. On the home screen, the user should be able to view all the stocks on their watchlist. This can be implemented similarly to the search page. To get all of this user's stocks, we can filter the 'watchlist' collection for items with that match the user's userID.
 9. The user should be able to remove stocks from their watchlist on the home screen. This can be done by swiping the list item which reveals a remove button.
@@ -110,6 +110,12 @@ If you don't have npm and node installed use this [link](https://nodejs.org/en/)
         "key": "API KEY",
     ```
 
+5. Run Expo Start
+    ```sh
+    expo start
+    ```
+6. Scan the generated QR code on expo go or run on an emulator.
+
 <!-- USAGE EXAMPLES -->
 
 ## Usage
@@ -130,3 +136,7 @@ Peter Pham - 101141273 - PeterPham@cmail.carleton.ca
 -   [App color scheme picker](https://coolors.co/palettes/trending)
 -   [Alphavantage Docs](https://www.alphavantage.co/documentation/)
 -   [React Native Line Chart Kit](https://github.com/indiespirit/react-native-chart-kit/blob/master/src/line-chart/LineChart.tsx)
+
+```
+
+```
