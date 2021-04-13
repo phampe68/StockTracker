@@ -79,7 +79,7 @@ This project will demonstrate the ability to interact with an API, have a user m
 ## Getting Started
 
 To get a local copy up and running follow these simple example steps.
-
+(See published app here: https://expo.io/@phampe68/projects/StockViewer)
 ### Prerequisites
 
 If you don't have npm and node installed use this [link](https://nodejs.org/en/)
