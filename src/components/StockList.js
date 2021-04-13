@@ -37,7 +37,7 @@ const StockList = ({ listData, itemType }) => {
      */
     useEffect(() => {
         if (timeSeries === "") return;
-        let symbol = selectedItem["1. symbol"];
+        let symbol = selectedItem["symbol"];
 
         getTimeSeries(symbol, timeSeries)
             .then((results) => {
@@ -58,7 +58,7 @@ const StockList = ({ listData, itemType }) => {
                         break;
                 }
 
-                //get first 6 labels:
+                //get first 10 labels:
                 let labels = Object.keys(data);
                 labels = labels.slice(0, 10);
                 labels = labels.reverse();
@@ -70,7 +70,7 @@ const StockList = ({ listData, itemType }) => {
                     }
                 }
 
-                //get first 6 values:
+                //get first 10 values:
                 let valueObjs = Object.values(data);
                 valueObjs = valueObjs.slice(0, 10);
                 valueObjs = valueObjs.reverse();

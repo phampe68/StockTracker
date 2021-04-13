@@ -21,6 +21,7 @@ const HomeScreen = ({ navigation }) => {
     useEffect(() => {
         watchListRef
             .where("userID", "==", currUserID)
+            .orderBy("symbol", "desc")
             .onSnapshot((querySnapshot) => {
                 let watchListItems = [];
                 querySnapshot.forEach((item) => {
@@ -28,11 +29,8 @@ const HomeScreen = ({ navigation }) => {
                     watchListItems.push(watchListItem);
                 });
                 setWatchList(watchListItems);
-                console.log("WATCHLIST", watchList);
             });
     }, []); //note: passing an array as 2nd arg to useEffect makes sure it only runs on mount/unmount
-
-    console.log("WATCHLIST", watchList);
 
     //menu button toggle side drawer
     return (

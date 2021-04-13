@@ -28,7 +28,15 @@ const SearchScreen = ({ navigation }) => {
         setSearch(enteredText);
 
         getStockSearchResults(enteredText).then((results) => {
-            setSearchData(results);
+            //store symbol and name as search results
+            let searchData = results.map((item) => {
+                return {
+                    symbol: item["1. symbol"],
+                    name: item["2. name"],
+                };
+            });
+
+            setSearchData(searchData);
         });
     };
 

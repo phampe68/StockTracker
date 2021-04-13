@@ -20,8 +20,8 @@ const SearchItem = ({ item, openModal }) => {
             style={styles.itemContainer}
         >
             <View style={styles.container}>
-                <Text style={styles.listItemText}>{item["1. symbol"]}</Text>
-                <Text style={styles.listItemText}>{item["2. name"]}</Text>
+                <Text style={styles.listItemText}>{item["symbol"]}</Text>
+                <Text style={styles.listItemText}>{item["name"]}</Text>
             </View>
             <View style={styles.leftHighlight} />
         </TouchableOpacity>

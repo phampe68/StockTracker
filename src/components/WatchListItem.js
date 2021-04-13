@@ -26,20 +26,20 @@ const WatchListItem = ({ item, openModal }) => {
     const watchListRef = firebase.firestore().collection("watchlist");
 
     //extract name and symbol
-    const symbol = item["1. symbol"];
-    const name = item["2. name"];
+    const symbol = item["symbol"];
+    const name = item["name"];
 
     /**
      * Find the document with matching userID and symbol in database and delete
      */
     const removeFromWatchList = () => {
-        console.log(watchListRef);
         watchListRef
             .where("userID", "==", currUserID)
-            .where("`1`.` symbol`", "==", symbol)
+            .where("symbol", "==", symbol)
             .onSnapshot(
                 (querySnapshot) => {
                     const item = querySnapshot.docs[0];
+                    console.log("ITEM", item);
                     if (item !== undefined) item.ref.delete();
                 },
                 (err) => {

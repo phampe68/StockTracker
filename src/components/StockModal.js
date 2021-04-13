@@ -52,15 +52,15 @@ const StockModal = ({
     const watchListRef = firebase.firestore().collection("watchlist");
 
     //extract symbol and name from item param
-    let symbol = item["1. symbol"];
-    let name = item["2. name"];
+    let symbol = item["symbol"];
+    let name = item["name"];
 
     //adds the stock to database with the userID
     const addToWatchListHandler = () => {
         Alert.alert("Stock added to watchlist");
         const dataToAdd = {
-            "1. symbol": symbol,
-            "2. name": name,
+            symbol: symbol,
+            name: name,
             userID: currUserID,
         };
         watchListRef.add(dataToAdd);
