@@ -8,10 +8,7 @@
   <p align="center">
     A simple stock viewer.
     <br />
-    <a href="https://github.com/phampe68/StockTracker"><strong>Explore the docs »</strong></a>
-    <br />
-    <br />
-    <a href="https://github.com/othneildrew/Best-README-Template">View Demo</a>
+    <a href="https://github.com/phampe68/StockTracker">View Demo</a>
     ·
     <a href="https://github.com/phampe68/StockTracker/issues">Report Bug</a>
     ·

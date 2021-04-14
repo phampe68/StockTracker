@@ -37,6 +37,7 @@ const StockList = ({ listData, itemType }) => {
      */
     useEffect(() => {
         if (timeSeries === "") return;
+
         let symbol = selectedItem["symbol"];
 
         getTimeSeries(symbol, timeSeries)

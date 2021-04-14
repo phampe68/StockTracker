@@ -29,7 +29,8 @@ const WatchListItem = ({ item, openModal }) => {
         watchListRef
             .where("userID", "==", currUserID)
             .where("symbol", "==", symbol)
-            .onSnapshot(
+            .get()
+            .then(
                 (querySnapshot) => {
                     const item = querySnapshot.docs[0];
                     if (item !== undefined) item.ref.delete();

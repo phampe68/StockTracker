@@ -6,7 +6,6 @@ import {
     Text,
     TouchableOpacity,
     Alert,
-    Dimensions,
 } from "react-native";
 
 import { LineChart } from "react-native-chart-kit";

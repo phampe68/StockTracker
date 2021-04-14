@@ -13,6 +13,7 @@ import Icon from "react-native-vector-icons/Feather";
 const HomeScreen = ({ navigation }) => {
     const currUserID = firebase.auth().currentUser.uid;
     const watchListRef = firebase.firestore().collection("watchlist");
+
     const [watchList, setWatchList] = useState({});
 
     /**

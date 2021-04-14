@@ -5,7 +5,6 @@ import {
     DrawerItem,
 } from "@react-navigation/drawer";
 import { NavigationContainer } from "@react-navigation/native";
-import { createStackNavigator } from "@react-navigation/stack";
 
 import React, { Component, useState, useEffect } from "react";
 
