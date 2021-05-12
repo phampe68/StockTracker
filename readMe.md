@@ -118,17 +118,11 @@ If you don't have npm and node installed use this [link](https://nodejs.org/en/)
     ```
 6. Scan the generated QR code on expo go or run on an emulator.
 
-<!-- USAGE EXAMPLES -->
-
-## Usage
-
-Please see the attached video where I demonstrate requirements and explain functionality.
-
 <!-- CONTACT -->
 
 ## Contact
 
-Peter Pham - 101141273 - PeterPham@cmail.carleton.ca
+Peter Pham -  Peterpham68@gmail.com
 
 <!-- ACKNOWLEDGEMENTS -->
 
