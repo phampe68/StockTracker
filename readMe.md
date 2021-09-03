@@ -51,6 +51,21 @@ This project will demonstrate the ability to interact with an API, have a user m
 -   The database will be using firebase
 -   The overall App will be created using react-native
 
+
+Screenshots:
+
+![image](https://user-images.githubusercontent.com/38918965/131922227-d9404a8e-74e5-46c9-b8a4-fe1cc032bfb9.png)
+
+![image](https://user-images.githubusercontent.com/38918965/131922270-11223282-65fe-4d6d-a459-81f3623c7c7c.png)
+
+![image](https://user-images.githubusercontent.com/38918965/131922297-059bcb3e-6718-4b5b-885e-076c5bf50dd2.png)
+
+![image](https://user-images.githubusercontent.com/38918965/131922331-c11299fe-eea1-4b3d-b652-2c939ca0a60d.png)
+
+![image](https://user-images.githubusercontent.com/38918965/131922405-e1a7d030-6612-4b09-b878-ac69e53a7b2c.png)
+
+![image](https://user-images.githubusercontent.com/38918965/131922440-b188d15b-8f79-4fdd-a2d8-b19d63109616.png)
+
 ## Design Requirements
 
 1. The user should begin at a sign in page where they can either login or be redirected to a sign up page. User accounts can be made using an email and password. If login is successful, the user should be redirected to the home page.
